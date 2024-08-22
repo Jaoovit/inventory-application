@@ -7,8 +7,8 @@ const path = require("node:path");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-const carRouter = require("./routes/carRouter");
-app.set("/", carRouter);
+const coffeeRouter = require("./routes/coffeeRouter");
+app.set("/", coffeeRouter);
 
 const port = process.env.PORT || 4100;
 app.listen(port, () => {

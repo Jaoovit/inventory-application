@@ -8,10 +8,12 @@ const DB = process.env.DB;
 const PASSWORD = process.env.PASSWORD;
 const SQLPORT = process.env.SQLPORT;
 
-module.exports = new Pool({
+const pool = new Pool({
   host: HOST,
   user: USER,
   database: DB,
   password: PASSWORD,
   port: SQLPORT,
 });
+
+module.exports = pool;

@@ -10,18 +10,19 @@ const PASSWORD = process.env.PASSWORD;
 const SQLPORT = process.env.SQLPORT;
 
 const SQL = `
-CREATE TABLE IF NOT EXISTS cars (
+CREATE TABLE IF NOT EXISTS coffee (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
-    brand VARCHAR(50) NOT NULL,
-    year INT NOT NULL,
-    availability BOOLEAN DEFAULT TRUE,
-     );
-INSERT INTO cars (name, brand, year)
+    origin VARCHAR(50) NOT NULL,
+    weight VARCHAR(50) NOT NULL,
+    price DECIMAL(5, 2) NOT NULL
+);
+
+INSERT INTO coffee (name, origin, weight, price)
 VALUES
-    ("Corse", "Opel", 2009),
-    ("306", "Peugeot", 2016),
-    ("ix35", "Hyundai", 2009),
+    ('Coffee Quindio', 'Colombia', '250g', 14.40),
+    ('Coffee Bombe', 'Ethiopia', '1000g', 30.00),
+    ('Coffee Caparaó', 'Brazil', '250g', 12.00);
 `;
 
 async function main() {
