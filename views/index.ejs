@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>42 coffee shop</title>
+    </head>
+    <body>
+        <h1>42 coffee shop</h1>
+        <div>
+        <% coffeeList.map((coffee) => { %>
+            <h2><%= coffee.name %></h2>
+            <p>origin: <%= coffee.origin %></p>
+            <p><%= coffee.weight %></p>
+            <p>€<%= coffee.price %></p>
+        <% }) %>
+        </div>
+    </body>
+</html>

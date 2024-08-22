@@ -1,16 +1,19 @@
 require("dotenv").config();
 
 const express = require("express");
+const coffeeRouter = require("./routes/coffeeRouter");
+const path = require("node:path");
 const app = express();
 
-const path = require("node:path");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-const coffeeRouter = require("./routes/coffeeRouter");
-app.set("/", coffeeRouter);
+app.use(express.urlencoded({ extended: true }));
 
-const port = process.env.PORT || 4100;
-app.listen(port, () => {
-  console.log(`The server is running in the port ${port}`);
+app.use("/", coffeeRouter);
+
+const PORT = process.env.PORT || 4100;
+
+app.listen(PORT, () => {
+  console.log(`The server is running in the port ${PORT}`);
 });

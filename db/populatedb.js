@@ -15,14 +15,15 @@ CREATE TABLE IF NOT EXISTS coffee (
     name VARCHAR(50) NOT NULL,
     origin VARCHAR(50) NOT NULL,
     weight VARCHAR(50) NOT NULL,
-    price DECIMAL(5, 2) NOT NULL
+    price DECIMAL(5, 2) NOT NULL,
+    quantity INT NOT NULL
 );
 
-INSERT INTO coffee (name, origin, weight, price)
+INSERT INTO coffee (name, origin, weight, price, quantity)
 VALUES
-    ('Coffee Quindio', 'Colombia', '250g', 14.40),
-    ('Coffee Bombe', 'Ethiopia', '1000g', 30.00),
-    ('Coffee Caparaó', 'Brazil', '250g', 12.00);
+    ('Coffee Quindio', 'Colombia', '250g', 14.40, 10),
+    ('Coffee Bombe', 'Ethiopia', '1000g', 30.00, 5),
+    ('Coffee Caparaó', 'Brazil', '250g', 12.00, 3);
 `;
 
 async function main() {
