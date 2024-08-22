@@ -8,5 +8,6 @@ router.post("/add", coffeeController.createNewCoffee);
 router.get("/coffee/:id", coffeeController.seeCoffeeById);
 router.post("/coffee/:id/decrease", coffeeController.decreaseQuantityById);
 router.post("/coffee/:id/delete", coffeeController.deleteCoffeeById);
+router.get("/search", coffeeController.getCoffeeOrigins);
 
 module.exports = router;

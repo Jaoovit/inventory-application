@@ -41,7 +41,6 @@ async function decreaseQuantityById(req, res) {
 async function seeCoffeeById(req, res) {
   const coffeeId = req.params.id;
   const coffee = await db.getCoffeeById(coffeeId);
-  console.log(coffee[0].quantity);
   res.render("coffee", { coffee: coffee });
 }
 
@@ -51,6 +50,13 @@ async function deleteCoffeeById(req, res) {
   res.redirect("/");
 }
 
+async function getCoffeeOrigins(req, res) {
+  const coffeeList = await db.getAllCoffee();
+  const origin = [...new Set(coffeeList.map((coffee) => coffee.origin))];
+  console.log(origin);
+  res.render("search", { origin: origin });
+}
+
 module.exports = {
   getListOfAllCoffee,
   showForms,
@@ -58,4 +64,5 @@ module.exports = {
   decreaseQuantityById,
   seeCoffeeById,
   deleteCoffeeById,
+  getCoffeeOrigins,
 };
