@@ -17,6 +17,13 @@
                     <button type="submit">see</button>
                 </form>
             </p>
+            <p>
+                <form action="/coffee/<%= coffee.id %>/decrease" method="POST">
+                    <label for="coffeeSelling"></label>
+                    <input type="number" name="coffeeSelling" id="coffeeSelling" min="0" max="<%= coffee.quantity %>">
+                    <button type="submit">buy</button>
+                </form>
+            </p>
         <% }) %>
         </div>
     </body>
