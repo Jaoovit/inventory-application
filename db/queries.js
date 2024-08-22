@@ -23,15 +23,11 @@ async function deleteACoffeeById(id) {
   await pool.query(`DELETE FROM coffee WHERE id = ${id}`);
 }
 
-/// Working here
-
 async function decreaseCoffeeQuantityById(id, quantity) {
   await pool.query(
     `UPDATE coffee SET quantity = ${quantity} WHERE id = '${id}'`
   );
 }
-
-///
 
 module.exports = {
   getAllCoffee,

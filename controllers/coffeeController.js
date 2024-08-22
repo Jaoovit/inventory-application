@@ -26,8 +26,6 @@ async function createNewCoffee(req, res) {
   res.redirect("/");
 }
 
-/// Working here
-
 async function decreaseQuantityById(req, res) {
   const coffeeId = req.params.id;
   const decrement = parseInt(req.body.coffeeSelling, 10);
@@ -40,13 +38,17 @@ async function decreaseQuantityById(req, res) {
   res.redirect("/");
 }
 
-///
-
 async function seeCoffeeById(req, res) {
   const coffeeId = req.params.id;
   const coffee = await db.getCoffeeById(coffeeId);
   console.log(coffee[0].quantity);
   res.render("coffee", { coffee: coffee });
+}
+
+async function deleteCoffeeById(req, res) {
+  const coffeeId = req.params.id;
+  await db.deleteACoffeeById(coffeeId);
+  res.redirect("/");
 }
 
 module.exports = {
@@ -55,4 +57,5 @@ module.exports = {
   createNewCoffee,
   decreaseQuantityById,
   seeCoffeeById,
+  deleteCoffeeById,
 };
