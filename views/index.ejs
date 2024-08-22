@@ -8,9 +8,15 @@
         <div>
         <% coffeeList.map((coffee) => { %>
             <h2><%= coffee.name %></h2>
-            <p>origin: <%= coffee.origin %></p>
+            <p>Origin: <%= coffee.origin %></p>
             <p><%= coffee.weight %></p>
             <p>€<%= coffee.price %></p>
+            <p>We have: <%= coffee.quantity %> units</p>
+            <p>
+                <form action="/coffee/<%= coffee.id %>" method="GET">
+                    <button type="submit">see</button>
+                </form>
+            </p>
         <% }) %>
         </div>
     </body>

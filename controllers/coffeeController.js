@@ -13,7 +13,7 @@ function showForms(req, res) {
 async function createNewCoffee(req, res) {
   const coffeeName = req.body.coffeeName;
   const coffeeOrigin = req.body.coffeeOrigin;
-  const coffeeWeight = req.body.coffeWeight;
+  const coffeeWeight = req.body.coffeeWeight;
   const coffeePrice = req.body.coffeePrice;
   const coffeeQuantity = req.body.coffeeQuantity;
   await db.getNewCoffeeFormsInfo(
@@ -25,5 +25,26 @@ async function createNewCoffee(req, res) {
   );
   res.redirect("/");
 }
+/*
+async function sellCoffee(req, res) {
+  const coffeeId = req.params.id;
+  const coffeeQuantity = req.params.quantity - 1;
+  await db.decreaseCoffeQuantityById(coffeeId, coffeeQuantity);
+  console.log(req.params.id);
+  console.log(req.params.quantity);
+}
+*/
 
-module.exports = { getListOfAllCoffee, showForms, createNewCoffee };
+async function seeCoffeeById(req, res) {
+  const coffeeId = req.params.id;
+  const coffee = await db.getCoffeeById(coffeeId);
+  res.render("coffee", { coffee: coffee });
+}
+
+module.exports = {
+  getListOfAllCoffee,
+  showForms,
+  createNewCoffee,
+  /*sellCoffee*/
+  seeCoffeeById,
+};

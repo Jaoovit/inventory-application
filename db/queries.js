@@ -14,7 +14,27 @@ async function getNewCoffeeFormsInfo(name, origin, weight, price, quantity) {
   return rows;
 }
 
+async function getCoffeeById(id) {
+  const { rows } = await pool.query(`SELECT * FROM coffee WHERE id = '${id}'`);
+  return rows;
+}
+
+/*
+async function deleteACoffeeById(id) {
+  await pool.query(`DELETE FROM coffee WHERE id = ${id}`);
+}
+
+async function decreaseCoffeQuantityById(id, quantity) {
+  await pool.query(
+    `UPDATE coffee SET quantity = ${quantity} WHERE id = '${id}'`
+  );
+}
+*/
+
 module.exports = {
   getAllCoffee,
   getNewCoffeeFormsInfo,
+  //deleteACoffeeById,
+  //decreaseCoffeQuantityById,
+  getCoffeeById,
 };
