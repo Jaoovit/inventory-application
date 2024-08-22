@@ -10,4 +10,20 @@ function showForms(req, res) {
   res.render("forms");
 }
 
-module.exports = { getListOfAllCoffee, showForms };
+async function createNewCoffee(req, res) {
+  const coffeeName = req.body.coffeeName;
+  const coffeeOrigin = req.body.coffeeOrigin;
+  const coffeeWeight = req.body.coffeWeight;
+  const coffeePrice = req.body.coffeePrice;
+  const coffeeQuantity = req.body.coffeeQuantity;
+  await db.getNewCoffeeFormsInfo(
+    coffeeName,
+    coffeeOrigin,
+    coffeeWeight,
+    coffeePrice,
+    coffeeQuantity
+  );
+  res.redirect("/");
+}
+
+module.exports = { getListOfAllCoffee, showForms, createNewCoffee };

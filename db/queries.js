@@ -5,6 +5,16 @@ async function getAllCoffee() {
   return rows;
 }
 
+async function getNewCoffeeFormsInfo(name, origin, weight, price, quantity) {
+  const { rows } = await pool.query(
+    `INSERT INTO coffee (name, origin, weight, price, quantity)
+     VALUES 
+     ('${name}', '${origin}', '${weight}', ${price}, ${quantity})`
+  );
+  return rows;
+}
+
 module.exports = {
   getAllCoffee,
+  getNewCoffeeFormsInfo,
 };

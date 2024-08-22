@@ -9,13 +9,14 @@ const DB = process.env.DB;
 const PASSWORD = process.env.PASSWORD;
 const SQLPORT = process.env.SQLPORT;
 
+// Find another price ***TYPE*** NOT NULL,
 const SQL = `
 CREATE TABLE IF NOT EXISTS coffee (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     origin VARCHAR(50) NOT NULL,
     weight VARCHAR(50) NOT NULL,
-    price DECIMAL(5, 2) NOT NULL,
+    price DOUBLE PRECISION NOT NULL,
     quantity INT NOT NULL
 );
 
