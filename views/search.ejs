@@ -5,12 +5,16 @@
     </head>
     <body>
         <h1>Find a coffee for origin</h1>
-        <% for(let i = 0; i < origin.length; i++) { %>
-            <p>
-                <form action="/origin/<%= origin[i] %>" method="GET">
-                    <button type="submit"> <%= origin[i] %> </button>
-                </form>
-            </p>
-        <% } %>
+        <p>
+            <form action="/origin" method="GET">
+                <label for="origin">Search: </label>
+                <select name="origin" id="origin">
+                    <% for(let i = 0; i < origin.length; i++) { %>
+                    <option value="<%= origin[i] %>"><%= origin[i] %></option>
+                    <% } %>
+                </select>
+                <input type="submit">
+            </form>
+        </p>
     </body>
 </html>

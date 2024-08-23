@@ -29,10 +29,18 @@ async function decreaseCoffeeQuantityById(id, quantity) {
   );
 }
 
+async function getByOrigin(origin) {
+  const { rows } = await pool.query(
+    `SELECT * FROM coffee WHERE origin = '${origin}'`
+  );
+  return rows;
+}
+
 module.exports = {
   getAllCoffee,
   getNewCoffeeFormsInfo,
   deleteACoffeeById,
   decreaseCoffeeQuantityById,
   getCoffeeById,
+  getByOrigin,
 };

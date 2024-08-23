@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>42 coffee origin</title>
+    </head>
+    <body>
+        <% coffee.map((coffee) => { %>
+        <h1><%= coffee.name %></h1>
+        <p>Origin: <%= coffee.origin %></p>
+        <p>Weigth: <%= coffee.weight %></p>
+        <p>Price: €<%= coffee.price %></p>
+        <p>We have <%= coffee.quantity %> in our stock</p>
+        <% }) %>
+    </body>
+</html>

@@ -57,6 +57,13 @@ async function getCoffeeOrigins(req, res) {
   res.render("search", { origin: origin });
 }
 
+async function getCoffeeByOrigin(req, res) {
+  const coffeeOrigin = req.query.origin;
+  const coffee = await db.getByOrigin(coffeeOrigin);
+  console.log(coffeeOrigin);
+  res.render("origin", { coffee: coffee });
+}
+
 module.exports = {
   getListOfAllCoffee,
   showForms,
@@ -65,4 +72,5 @@ module.exports = {
   seeCoffeeById,
   deleteCoffeeById,
   getCoffeeOrigins,
+  getCoffeeByOrigin,
 };
