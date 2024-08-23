@@ -53,14 +53,12 @@ async function deleteCoffeeById(req, res) {
 async function getCoffeeOrigins(req, res) {
   const coffeeList = await db.getAllCoffee();
   const origin = [...new Set(coffeeList.map((coffee) => coffee.origin))];
-  console.log(origin);
   res.render("search", { origin: origin });
 }
 
 async function getCoffeeByOrigin(req, res) {
   const coffeeOrigin = req.query.origin;
   const coffee = await db.getByOrigin(coffeeOrigin);
-  console.log(coffeeOrigin);
   res.render("origin", { coffee: coffee });
 }
 
